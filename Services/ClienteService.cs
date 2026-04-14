@@ -22,7 +22,8 @@ public class ClienteService : IClienteService
         var cliente = new Cliente
         {
             Nome = dto.Nome,
-            CPF = dto.CPF
+            CPF = dto.CPF,
+            Senha = dto.Senha
         };
 
         var clienteCriado = await _repository.CriarAsync(cliente);
