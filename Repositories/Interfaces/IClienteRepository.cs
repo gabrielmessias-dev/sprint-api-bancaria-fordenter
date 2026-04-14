@@ -11,4 +11,5 @@ public interface IClienteRepository
     Task<List<Cliente>> ObterTodosAsync();
     Task AtualizarAsync(Cliente cliente);
     Task RemoverAsync(Cliente cliente);
+    Task<Cliente?> ObterPorCpfAsync(string cpf);
 }

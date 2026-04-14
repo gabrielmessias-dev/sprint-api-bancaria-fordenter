@@ -1,7 +1,9 @@
 ﻿using API_bancaria.DTOs.Clientes;
 using API_bancaria.Services.Interfaces;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Authorization;
 
+[Authorize]
 [ApiController]
 [Route("api/[controller]")]
 public class ClientesController : ControllerBase
@@ -13,6 +15,7 @@ public class ClientesController : ControllerBase
         _service = service;
     }
 
+    [AllowAnonymous]
     [HttpPost]
     public async Task<IActionResult> Criar([FromBody] CreateClienteDto dto)
     {
@@ -54,6 +57,7 @@ public class ClientesController : ControllerBase
         await _service.RemoverAsync(id);
         return Ok(new { mensagem = "Cliente removido com sucesso" });
     }
+
 
 
 }

@@ -7,44 +7,84 @@
       "RelativeMoniker": "D:0:0:{A406DC78-5763-8D28-48A3-132F3C09D34B}|API-bancaria.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A406DC78-5763-8D28-48A3-132F3C09D34B}|API-bancaria.csproj|c:\\users\\025.016231\\api-bancaria\\services\\contaservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A406DC78-5763-8D28-48A3-132F3C09D34B}|API-bancaria.csproj|solutionrelative:services\\contaservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A406DC78-5763-8D28-48A3-132F3C09D34B}|API-bancaria.csproj|c:\\users\\025.016231\\api-bancaria\\middlewares\\errorhandlingmiddleware.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A406DC78-5763-8D28-48A3-132F3C09D34B}|API-bancaria.csproj|solutionrelative:middlewares\\errorhandlingmiddleware.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A406DC78-5763-8D28-48A3-132F3C09D34B}|API-bancaria.csproj|c:\\users\\025.016231\\api-bancaria\\controllers\\contascontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A406DC78-5763-8D28-48A3-132F3C09D34B}|API-bancaria.csproj|solutionrelative:controllers\\contascontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A406DC78-5763-8D28-48A3-132F3C09D34B}|API-bancaria.csproj|c:\\users\\025.016231\\api-bancaria\\api-bancaria.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{A406DC78-5763-8D28-48A3-132F3C09D34B}|API-bancaria.csproj|solutionrelative:api-bancaria.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A406DC78-5763-8D28-48A3-132F3C09D34B}|API-bancaria.csproj|c:\\users\\025.016231\\api-bancaria\\services\\interfaces\\icontaservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A406DC78-5763-8D28-48A3-132F3C09D34B}|API-bancaria.csproj|solutionrelative:services\\interfaces\\icontaservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A406DC78-5763-8D28-48A3-132F3C09D34B}|API-bancaria.csproj|c:\\users\\025.016231\\api-bancaria\\services\\authservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A406DC78-5763-8D28-48A3-132F3C09D34B}|API-bancaria.csproj|solutionrelative:services\\authservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A406DC78-5763-8D28-48A3-132F3C09D34B}|API-bancaria.csproj|c:\\users\\025.016231\\api-bancaria\\services\\interfaces\\iclienteservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A406DC78-5763-8D28-48A3-132F3C09D34B}|API-bancaria.csproj|solutionrelative:services\\interfaces\\iclienteservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A406DC78-5763-8D28-48A3-132F3C09D34B}|API-bancaria.csproj|c:\\users\\025.016231\\api-bancaria\\repositories\\contarepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A406DC78-5763-8D28-48A3-132F3C09D34B}|API-bancaria.csproj|solutionrelative:repositories\\contarepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A406DC78-5763-8D28-48A3-132F3C09D34B}|API-bancaria.csproj|c:\\users\\025.016231\\api-bancaria\\repositories\\interfaces\\icontarepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A406DC78-5763-8D28-48A3-132F3C09D34B}|API-bancaria.csproj|solutionrelative:repositories\\interfaces\\icontarepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A406DC78-5763-8D28-48A3-132F3C09D34B}|API-bancaria.csproj|c:\\users\\025.016231\\api-bancaria\\repositories\\clienterepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A406DC78-5763-8D28-48A3-132F3C09D34B}|API-bancaria.csproj|solutionrelative:repositories\\clienterepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{A406DC78-5763-8D28-48A3-132F3C09D34B}|API-bancaria.csproj|c:\\users\\025.016231\\api-bancaria\\repositories\\interfaces\\iclienterepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{A406DC78-5763-8D28-48A3-132F3C09D34B}|API-bancaria.csproj|solutionrelative:repositories\\interfaces\\iclienterepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{A406DC78-5763-8D28-48A3-132F3C09D34B}|API-bancaria.csproj|c:\\users\\025.016231\\api-bancaria\\controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A406DC78-5763-8D28-48A3-132F3C09D34B}|API-bancaria.csproj|solutionrelative:controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A406DC78-5763-8D28-48A3-132F3C09D34B}|API-bancaria.csproj|c:\\users\\025.016231\\api-bancaria\\controllers\\transacoescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A406DC78-5763-8D28-48A3-132F3C09D34B}|API-bancaria.csproj|solutionrelative:controllers\\transacoescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A406DC78-5763-8D28-48A3-132F3C09D34B}|API-bancaria.csproj|c:\\users\\025.016231\\api-bancaria\\controllers\\contascontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A406DC78-5763-8D28-48A3-132F3C09D34B}|API-bancaria.csproj|solutionrelative:controllers\\contascontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{A406DC78-5763-8D28-48A3-132F3C09D34B}|API-bancaria.csproj|c:\\users\\025.016231\\api-bancaria\\controllers\\clientescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{A406DC78-5763-8D28-48A3-132F3C09D34B}|API-bancaria.csproj|solutionrelative:controllers\\clientescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A406DC78-5763-8D28-48A3-132F3C09D34B}|API-bancaria.csproj|c:\\users\\025.016231\\api-bancaria\\services\\clienteservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A406DC78-5763-8D28-48A3-132F3C09D34B}|API-bancaria.csproj|solutionrelative:services\\clienteservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A406DC78-5763-8D28-48A3-132F3C09D34B}|API-bancaria.csproj|c:\\users\\025.016231\\api-bancaria\\dtos\\auth\\logindto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A406DC78-5763-8D28-48A3-132F3C09D34B}|API-bancaria.csproj|solutionrelative:dtos\\auth\\logindto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A406DC78-5763-8D28-48A3-132F3C09D34B}|API-bancaria.csproj|c:\\users\\025.016231\\api-bancaria\\repositories\\clienterepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A406DC78-5763-8D28-48A3-132F3C09D34B}|API-bancaria.csproj|solutionrelative:repositories\\clienterepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A406DC78-5763-8D28-48A3-132F3C09D34B}|API-bancaria.csproj|c:\\users\\025.016231\\api-bancaria\\models\\cliente.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A406DC78-5763-8D28-48A3-132F3C09D34B}|API-bancaria.csproj|solutionrelative:models\\cliente.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A406DC78-5763-8D28-48A3-132F3C09D34B}|API-bancaria.csproj|c:\\users\\025.016231\\api-bancaria\\services\\transacaoservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A406DC78-5763-8D28-48A3-132F3C09D34B}|API-bancaria.csproj|solutionrelative:services\\transacaoservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A406DC78-5763-8D28-48A3-132F3C09D34B}|API-bancaria.csproj|c:\\users\\025.016231\\api-bancaria\\repositories\\transacaorepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A406DC78-5763-8D28-48A3-132F3C09D34B}|API-bancaria.csproj|solutionrelative:repositories\\transacaorepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A406DC78-5763-8D28-48A3-132F3C09D34B}|API-bancaria.csproj|c:\\users\\025.016231\\api-bancaria\\repositories\\interfaces\\itransacaorepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A406DC78-5763-8D28-48A3-132F3C09D34B}|API-bancaria.csproj|solutionrelative:repositories\\interfaces\\itransacaorepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A406DC78-5763-8D28-48A3-132F3C09D34B}|API-bancaria.csproj|c:\\users\\025.016231\\api-bancaria\\services\\interfaces\\itransacaoservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A406DC78-5763-8D28-48A3-132F3C09D34B}|API-bancaria.csproj|solutionrelative:services\\interfaces\\itransacaoservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A406DC78-5763-8D28-48A3-132F3C09D34B}|API-bancaria.csproj|c:\\users\\025.016231\\api-bancaria\\repositories\\contarepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A406DC78-5763-8D28-48A3-132F3C09D34B}|API-bancaria.csproj|solutionrelative:repositories\\contarepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A406DC78-5763-8D28-48A3-132F3C09D34B}|API-bancaria.csproj|c:\\users\\025.016231\\api-bancaria\\services\\contaservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A406DC78-5763-8D28-48A3-132F3C09D34B}|API-bancaria.csproj|solutionrelative:services\\contaservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A406DC78-5763-8D28-48A3-132F3C09D34B}|API-bancaria.csproj|c:\\users\\025.016231\\api-bancaria\\services\\interfaces\\icontaservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A406DC78-5763-8D28-48A3-132F3C09D34B}|API-bancaria.csproj|solutionrelative:services\\interfaces\\icontaservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A406DC78-5763-8D28-48A3-132F3C09D34B}|API-bancaria.csproj|c:\\users\\025.016231\\api-bancaria\\repositories\\interfaces\\icontarepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A406DC78-5763-8D28-48A3-132F3C09D34B}|API-bancaria.csproj|solutionrelative:repositories\\interfaces\\icontarepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A406DC78-5763-8D28-48A3-132F3C09D34B}|API-bancaria.csproj|c:\\users\\025.016231\\api-bancaria\\services\\clienteservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A406DC78-5763-8D28-48A3-132F3C09D34B}|API-bancaria.csproj|solutionrelative:services\\clienteservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{A406DC78-5763-8D28-48A3-132F3C09D34B}|API-bancaria.csproj|c:\\users\\025.016231\\api-bancaria\\dtos\\clientes\\updateclientedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -53,10 +93,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{A406DC78-5763-8D28-48A3-132F3C09D34B}|API-bancaria.csproj|c:\\users\\025.016231\\api-bancaria\\dtos\\contas\\createcontadto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{A406DC78-5763-8D28-48A3-132F3C09D34B}|API-bancaria.csproj|solutionrelative:dtos\\contas\\createcontadto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A406DC78-5763-8D28-48A3-132F3C09D34B}|API-bancaria.csproj|c:\\users\\025.016231\\api-bancaria\\middlewares\\errorhandlingmiddleware.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A406DC78-5763-8D28-48A3-132F3C09D34B}|API-bancaria.csproj|solutionrelative:middlewares\\errorhandlingmiddleware.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{A406DC78-5763-8D28-48A3-132F3C09D34B}|API-bancaria.csproj|c:\\users\\025.016231\\api-bancaria\\dtos\\clientes\\responseclientedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -81,112 +117,104 @@
           "SelectedChildIndex": 9,
           "Children": [
             {
-              "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "ClientesController.cs",
-              "DocumentMoniker": "C:\\Users\\025.016231\\API-bancaria\\Controllers\\ClientesController.cs",
-              "RelativeDocumentMoniker": "Controllers\\ClientesController.cs",
-              "ToolTip": "C:\\Users\\025.016231\\API-bancaria\\Controllers\\ClientesController.cs",
-              "RelativeToolTip": "Controllers\\ClientesController.cs",
-              "ViewState": "AgIAABsAAAAAAAAAAAA2wDcAAAAFAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-13T13:38:47.818Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "IClienteService.cs",
-              "DocumentMoniker": "C:\\Users\\025.016231\\API-bancaria\\Services\\Interfaces\\IClienteService.cs",
-              "RelativeDocumentMoniker": "Services\\Interfaces\\IClienteService.cs",
-              "ToolTip": "C:\\Users\\025.016231\\API-bancaria\\Services\\Interfaces\\IClienteService.cs",
-              "RelativeToolTip": "Services\\Interfaces\\IClienteService.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAeAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-13T13:37:15.823Z",
-              "EditorCaption": ""
-            },
-            {
               "$type": "Bookmark",
               "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "ContaService.cs",
-              "DocumentMoniker": "C:\\Users\\025.016231\\API-bancaria\\Services\\ContaService.cs",
-              "RelativeDocumentMoniker": "Services\\ContaService.cs",
-              "ToolTip": "C:\\Users\\025.016231\\API-bancaria\\Services\\ContaService.cs",
-              "RelativeToolTip": "Services\\ContaService.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABcAAAAcAAAAAAAAAA==",
+              "DocumentIndex": 6,
+              "Title": "AuthController.cs",
+              "DocumentMoniker": "C:\\Users\\025.016231\\API-bancaria\\Controllers\\AuthController.cs",
+              "RelativeDocumentMoniker": "Controllers\\AuthController.cs",
+              "ToolTip": "C:\\Users\\025.016231\\API-bancaria\\Controllers\\AuthController.cs",
+              "RelativeToolTip": "Controllers\\AuthController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABgAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-13T13:14:12.654Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-04-14T12:18:25.531Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 3,
-              "Title": "IContaService.cs",
-              "DocumentMoniker": "C:\\Users\\025.016231\\API-bancaria\\Services\\Interfaces\\IContaService.cs",
-              "RelativeDocumentMoniker": "Services\\Interfaces\\IContaService.cs",
-              "ToolTip": "C:\\Users\\025.016231\\API-bancaria\\Services\\Interfaces\\IContaService.cs",
-              "RelativeToolTip": "Services\\Interfaces\\IContaService.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAA6AAAAAAAAAA==",
+              "Title": "AuthService.cs",
+              "DocumentMoniker": "C:\\Users\\025.016231\\API-bancaria\\Services\\AuthService.cs",
+              "RelativeDocumentMoniker": "Services\\AuthService.cs",
+              "ToolTip": "C:\\Users\\025.016231\\API-bancaria\\Services\\AuthService.cs",
+              "RelativeToolTip": "Services\\AuthService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACsAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-13T13:13:33.88Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "IContaRepository.cs",
-              "DocumentMoniker": "C:\\Users\\025.016231\\API-bancaria\\Repositories\\Interfaces\\IContaRepository.cs",
-              "RelativeDocumentMoniker": "Repositories\\Interfaces\\IContaRepository.cs",
-              "ToolTip": "C:\\Users\\025.016231\\API-bancaria\\Repositories\\Interfaces\\IContaRepository.cs",
-              "RelativeToolTip": "Repositories\\Interfaces\\IContaRepository.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAjAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-13T13:11:20.178Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-04-14T12:18:04.086Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 2,
+              "Title": "API-bancaria.csproj",
+              "DocumentMoniker": "C:\\Users\\025.016231\\API-bancaria\\API-bancaria.csproj",
+              "RelativeDocumentMoniker": "API-bancaria.csproj",
+              "ToolTip": "C:\\Users\\025.016231\\API-bancaria\\API-bancaria.csproj",
+              "RelativeToolTip": "API-bancaria.csproj",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAXAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2026-04-14T12:13:06.365Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
               "Title": "ContasController.cs",
               "DocumentMoniker": "C:\\Users\\025.016231\\API-bancaria\\Controllers\\ContasController.cs",
               "RelativeDocumentMoniker": "Controllers\\ContasController.cs",
               "ToolTip": "C:\\Users\\025.016231\\API-bancaria\\Controllers\\ContasController.cs",
               "RelativeToolTip": "Controllers\\ContasController.cs",
-              "ViewState": "AgIAABAAAAAAAAAAAAAiwC0AAAAFAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAKAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-13T13:16:29.085Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "ContaRepository.cs",
-              "DocumentMoniker": "C:\\Users\\025.016231\\API-bancaria\\Repositories\\ContaRepository.cs",
-              "RelativeDocumentMoniker": "Repositories\\ContaRepository.cs",
-              "ToolTip": "C:\\Users\\025.016231\\API-bancaria\\Repositories\\ContaRepository.cs",
-              "RelativeToolTip": "Repositories\\ContaRepository.cs",
-              "ViewState": "AgIAAA0AAAAAAAAAAAAUwCgAAAAFAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-13T13:11:46.007Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-04-13T13:16:29.085Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 7,
+              "Title": "TransacoesController.cs",
+              "DocumentMoniker": "C:\\Users\\025.016231\\API-bancaria\\Controllers\\TransacoesController.cs",
+              "RelativeDocumentMoniker": "Controllers\\TransacoesController.cs",
+              "ToolTip": "C:\\Users\\025.016231\\API-bancaria\\Controllers\\TransacoesController.cs",
+              "RelativeToolTip": "Controllers\\TransacoesController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAALAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-14T11:00:54.285Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
               "Title": "IClienteRepository.cs",
               "DocumentMoniker": "C:\\Users\\025.016231\\API-bancaria\\Repositories\\Interfaces\\IClienteRepository.cs",
               "RelativeDocumentMoniker": "Repositories\\Interfaces\\IClienteRepository.cs",
               "ToolTip": "C:\\Users\\025.016231\\API-bancaria\\Repositories\\Interfaces\\IClienteRepository.cs",
               "RelativeToolTip": "Repositories\\Interfaces\\IClienteRepository.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAnAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAwAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-13T13:38:02.745Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-04-13T13:38:02.745Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "ClienteRepository.cs",
+              "DocumentMoniker": "C:\\Users\\025.016231\\API-bancaria\\Repositories\\ClienteRepository.cs",
+              "RelativeDocumentMoniker": "Repositories\\ClienteRepository.cs",
+              "ToolTip": "C:\\Users\\025.016231\\API-bancaria\\Repositories\\ClienteRepository.cs",
+              "RelativeToolTip": "Repositories\\ClienteRepository.cs",
+              "ViewState": "AgIAAB0AAAAAAAAAAAAwwDwAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-13T13:38:27.903Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "ErrorHandlingMiddleware.cs",
+              "DocumentMoniker": "C:\\Users\\025.016231\\API-bancaria\\Middlewares\\ErrorHandlingMiddleware.cs",
+              "RelativeDocumentMoniker": "Middlewares\\ErrorHandlingMiddleware.cs",
+              "ToolTip": "C:\\Users\\025.016231\\API-bancaria\\Middlewares\\ErrorHandlingMiddleware.cs",
+              "RelativeToolTip": "Middlewares\\ErrorHandlingMiddleware.cs",
+              "ViewState": "AgIAAAgAAAAAAAAAAAAQwCYAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-13T13:00:49.136Z"
             },
             {
               "$type": "Document",
@@ -196,7 +224,7 @@
               "RelativeDocumentMoniker": "Program.cs",
               "ToolTip": "C:\\Users\\025.016231\\API-bancaria\\Program.cs",
               "RelativeToolTip": "Program.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAA6AAAAAAAAAA==",
+              "ViewState": "AgIAACQAAAAAAAAAAAAAAEAAAAADAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-04-13T11:22:28.99Z",
               "EditorCaption": ""
@@ -204,6 +232,138 @@
             {
               "$type": "Document",
               "DocumentIndex": 9,
+              "Title": "ClientesController.cs",
+              "DocumentMoniker": "C:\\Users\\025.016231\\API-bancaria\\Controllers\\ClientesController.cs",
+              "RelativeDocumentMoniker": "Controllers\\ClientesController.cs",
+              "ToolTip": "C:\\Users\\025.016231\\API-bancaria\\Controllers\\ClientesController.cs",
+              "RelativeToolTip": "Controllers\\ClientesController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAATAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-13T13:38:47.818Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "LoginDto.cs",
+              "DocumentMoniker": "C:\\Users\\025.016231\\API-bancaria\\DTOs\\Auth\\LoginDto.cs",
+              "RelativeDocumentMoniker": "DTOs\\Auth\\LoginDto.cs",
+              "ToolTip": "C:\\Users\\025.016231\\API-bancaria\\DTOs\\Auth\\LoginDto.cs",
+              "RelativeToolTip": "DTOs\\Auth\\LoginDto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-14T12:14:28.537Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "Cliente.cs",
+              "DocumentMoniker": "C:\\Users\\025.016231\\API-bancaria\\Models\\Cliente.cs",
+              "RelativeDocumentMoniker": "Models\\Cliente.cs",
+              "ToolTip": "C:\\Users\\025.016231\\API-bancaria\\Models\\Cliente.cs",
+              "RelativeToolTip": "Models\\Cliente.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-14T12:13:57.661Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "TransacaoService.cs",
+              "DocumentMoniker": "C:\\Users\\025.016231\\API-bancaria\\Services\\TransacaoService.cs",
+              "RelativeDocumentMoniker": "Services\\TransacaoService.cs",
+              "ToolTip": "C:\\Users\\025.016231\\API-bancaria\\Services\\TransacaoService.cs",
+              "RelativeToolTip": "Services\\TransacaoService.cs",
+              "ViewState": "AgIAACEAAAAAAAAAAAAowDoAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-14T11:01:54.182Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "TransacaoRepository.cs",
+              "DocumentMoniker": "C:\\Users\\025.016231\\API-bancaria\\Repositories\\TransacaoRepository.cs",
+              "RelativeDocumentMoniker": "Repositories\\TransacaoRepository.cs",
+              "ToolTip": "C:\\Users\\025.016231\\API-bancaria\\Repositories\\TransacaoRepository.cs",
+              "RelativeToolTip": "Repositories\\TransacaoRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABQAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-14T11:15:34.788Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "ITransacaoRepository.cs",
+              "DocumentMoniker": "C:\\Users\\025.016231\\API-bancaria\\Repositories\\Interfaces\\ITransacaoRepository.cs",
+              "RelativeDocumentMoniker": "Repositories\\Interfaces\\ITransacaoRepository.cs",
+              "ToolTip": "C:\\Users\\025.016231\\API-bancaria\\Repositories\\Interfaces\\ITransacaoRepository.cs",
+              "RelativeToolTip": "Repositories\\Interfaces\\ITransacaoRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-14T11:15:16.279Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "ITransacaoService.cs",
+              "DocumentMoniker": "C:\\Users\\025.016231\\API-bancaria\\Services\\Interfaces\\ITransacaoService.cs",
+              "RelativeDocumentMoniker": "Services\\Interfaces\\ITransacaoService.cs",
+              "ToolTip": "C:\\Users\\025.016231\\API-bancaria\\Services\\Interfaces\\ITransacaoService.cs",
+              "RelativeToolTip": "Services\\Interfaces\\ITransacaoService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-14T11:02:38.172Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
+              "Title": "ContaService.cs",
+              "DocumentMoniker": "C:\\Users\\025.016231\\API-bancaria\\Services\\ContaService.cs",
+              "RelativeDocumentMoniker": "Services\\ContaService.cs",
+              "ToolTip": "C:\\Users\\025.016231\\API-bancaria\\Services\\ContaService.cs",
+              "RelativeToolTip": "Services\\ContaService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABcAAAAcAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-13T13:14:12.654Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 18,
+              "Title": "IContaService.cs",
+              "DocumentMoniker": "C:\\Users\\025.016231\\API-bancaria\\Services\\Interfaces\\IContaService.cs",
+              "RelativeDocumentMoniker": "Services\\Interfaces\\IContaService.cs",
+              "ToolTip": "C:\\Users\\025.016231\\API-bancaria\\Services\\Interfaces\\IContaService.cs",
+              "RelativeToolTip": "Services\\Interfaces\\IContaService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAA6AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-13T13:13:33.88Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 19,
+              "Title": "IContaRepository.cs",
+              "DocumentMoniker": "C:\\Users\\025.016231\\API-bancaria\\Repositories\\Interfaces\\IContaRepository.cs",
+              "RelativeDocumentMoniker": "Repositories\\Interfaces\\IContaRepository.cs",
+              "ToolTip": "C:\\Users\\025.016231\\API-bancaria\\Repositories\\Interfaces\\IContaRepository.cs",
+              "RelativeToolTip": "Repositories\\Interfaces\\IContaRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAjAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-13T13:11:20.178Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "ContaRepository.cs",
+              "DocumentMoniker": "C:\\Users\\025.016231\\API-bancaria\\Repositories\\ContaRepository.cs",
+              "RelativeDocumentMoniker": "Repositories\\ContaRepository.cs",
+              "ToolTip": "C:\\Users\\025.016231\\API-bancaria\\Repositories\\ContaRepository.cs",
+              "RelativeToolTip": "Repositories\\ContaRepository.cs",
+              "ViewState": "AgIAAAgAAAAAAAAAAAAQwCgAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-13T13:11:46.007Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 20,
               "Title": "ClienteService.cs",
               "DocumentMoniker": "C:\\Users\\025.016231\\API-bancaria\\Services\\ClienteService.cs",
               "RelativeDocumentMoniker": "Services\\ClienteService.cs",
@@ -211,25 +371,11 @@
               "RelativeToolTip": "Services\\ClienteService.cs",
               "ViewState": "AgIAADgAAAAAAAAAAAAiwF0AAAAFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-13T13:37:36.952Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-04-13T13:37:36.952Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
-              "Title": "ClienteRepository.cs",
-              "DocumentMoniker": "C:\\Users\\025.016231\\API-bancaria\\Repositories\\ClienteRepository.cs",
-              "RelativeDocumentMoniker": "Repositories\\ClienteRepository.cs",
-              "ToolTip": "C:\\Users\\025.016231\\API-bancaria\\Repositories\\ClienteRepository.cs",
-              "RelativeToolTip": "Repositories\\ClienteRepository.cs",
-              "ViewState": "AgIAABUAAAAAAAAAAAAowDYAAAAFAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-13T13:38:27.903Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 21,
               "Title": "UpdateClienteDto.cs",
               "DocumentMoniker": "C:\\Users\\025.016231\\API-bancaria\\DTOs\\Clientes\\UpdateClienteDto.cs",
               "RelativeDocumentMoniker": "DTOs\\Clientes\\UpdateClienteDto.cs",
@@ -237,12 +383,11 @@
               "RelativeToolTip": "DTOs\\Clientes\\UpdateClienteDto.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAAAlAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-13T13:39:16.566Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-04-13T13:39:16.566Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 12,
+              "DocumentIndex": 22,
               "Title": "CreateContaDto.cs",
               "DocumentMoniker": "C:\\Users\\025.016231\\API-bancaria\\DTOs\\Contas\\CreateContaDto.cs",
               "RelativeDocumentMoniker": "DTOs\\Contas\\CreateContaDto.cs",
@@ -250,25 +395,11 @@
               "RelativeToolTip": "DTOs\\Contas\\CreateContaDto.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAmAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-13T13:10:32.677Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-04-13T13:10:32.677Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 13,
-              "Title": "ErrorHandlingMiddleware.cs",
-              "DocumentMoniker": "C:\\Users\\025.016231\\API-bancaria\\Middlewares\\ErrorHandlingMiddleware.cs",
-              "RelativeDocumentMoniker": "Middlewares\\ErrorHandlingMiddleware.cs",
-              "ToolTip": "C:\\Users\\025.016231\\API-bancaria\\Middlewares\\ErrorHandlingMiddleware.cs",
-              "RelativeToolTip": "Middlewares\\ErrorHandlingMiddleware.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAACYAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-13T13:00:49.136Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 14,
+              "DocumentIndex": 23,
               "Title": "ResponseClienteDto.cs",
               "DocumentMoniker": "C:\\Users\\025.016231\\API-bancaria\\DTOs\\Clientes\\ResponseClienteDto.cs",
               "RelativeDocumentMoniker": "DTOs\\Clientes\\ResponseClienteDto.cs",
@@ -276,12 +407,11 @@
               "RelativeToolTip": "DTOs\\Clientes\\ResponseClienteDto.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-13T12:25:11.269Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-04-13T12:25:11.269Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 15,
+              "DocumentIndex": 24,
               "Title": "CreateClienteDto.cs",
               "DocumentMoniker": "C:\\Users\\025.016231\\API-bancaria\\DTOs\\Clientes\\CreateClienteDto.cs",
               "RelativeDocumentMoniker": "DTOs\\Clientes\\CreateClienteDto.cs",
@@ -289,12 +419,11 @@
               "RelativeToolTip": "DTOs\\Clientes\\CreateClienteDto.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAzAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-13T12:24:24.753Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-04-13T12:24:24.753Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 16,
+              "DocumentIndex": 25,
               "Title": "appsettings.json",
               "DocumentMoniker": "C:\\Users\\025.016231\\API-bancaria\\appsettings.json",
               "RelativeDocumentMoniker": "appsettings.json",

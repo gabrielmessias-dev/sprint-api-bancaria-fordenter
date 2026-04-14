@@ -53,4 +53,10 @@ public class ClienteRepository : IClienteRepository
         _context.Clientes.Remove(cliente);
         await _context.SaveChangesAsync();
     }
+
+    public async Task<Cliente?> ObterPorCpfAsync(string cpf)
+    {
+        return await _context.Clientes
+            .FirstOrDefaultAsync(c => c.CPF == cpf);
+    }
 }

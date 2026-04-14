@@ -114,3 +114,4 @@ C:\Users\025.016231\API-bancaria\obj\Debug\net8.0\refint\API-bancaria.dll
 C:\Users\025.016231\API-bancaria\obj\Debug\net8.0\API-bancaria.pdb
 C:\Users\025.016231\API-bancaria\obj\Debug\net8.0\API-bancaria.genruntimeconfig.cache
 C:\Users\025.016231\API-bancaria\obj\Debug\net8.0\ref\API-bancaria.dll
+C:\Users\025.016231\API-bancaria\obj\Debug\net8.0\API-bancaria.sourcelink.json

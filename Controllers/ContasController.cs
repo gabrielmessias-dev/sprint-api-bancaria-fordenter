@@ -1,7 +1,9 @@
 ﻿using API_bancaria.DTOs.Contas;
 using API_bancaria.Services.Interfaces;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Authorization;
 
+[Authorize]
 [ApiController]
 [Route("api/[controller]")]
 public class ContasController : ControllerBase
