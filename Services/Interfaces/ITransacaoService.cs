@@ -6,4 +6,5 @@ public interface ITransacaoService
 {
     Task DepositoAsync(CreateTransacaoDto dto);
     Task SaqueAsync(CreateTransacaoDto dto);
+    Task TransferenciaAsync(CreateTransacaoDto dto);
 }

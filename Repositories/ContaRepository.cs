@@ -39,4 +39,10 @@ public class ContaRepository : IContaRepository
         _context.Contas.Remove(conta);
         await _context.SaveChangesAsync();
     }
+
+    public async Task AtualizarAsync(Conta conta)
+    {
+        _context.Contas.Update(conta);
+        await _context.SaveChangesAsync();
+    }
 }

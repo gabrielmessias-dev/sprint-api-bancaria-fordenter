@@ -11,10 +11,16 @@ namespace API_bancaria.Controllers;
 public class TransacoesController : ControllerBase
 {
     private readonly ITransacaoService _service;
+    private readonly ITransacaoService _transacaoService;
 
     public TransacoesController(ITransacaoService service)
     {
         _service = service;
+    }
+
+    public TransacoesController(ITransacaoService transacaoService)
+    {
+        _transacaoService = transacaoService;
     }
 
     [HttpPost("deposito")]
@@ -43,5 +49,12 @@ public class TransacoesController : ControllerBase
         {
             mensagem = "Saque realizado com sucesso"
         });
+    }
+
+    [HttpPost("transferencia")]
+    public async Task<IActionResult> Transferencia(CreateTransacaoDto dto)
+    {
+        await _transacaoService.TransferenciaAsync(dto);
+        return Ok("Transferência realizada com sucesso.");
     }
 }

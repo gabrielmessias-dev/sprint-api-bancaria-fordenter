@@ -2,9 +2,12 @@
   "ExpandedNodes": [
     "",
     "\\Controllers",
-    "\\DTOs",
-    "\\DTOs\\Clientes"
+    "\\Models",
+    "\\Repositories",
+    "\\Repositories\\Interfaces",
+    "\\Services",
+    "\\Services\\Interfaces"
   ],
-  "SelectedNode": "\\DTOs\\Clientes\\CreateClienteDto.cs",
+  "SelectedNode": "\\Models\\Transacao.cs",
   "PreviewInSolutionExplorer": false
 }

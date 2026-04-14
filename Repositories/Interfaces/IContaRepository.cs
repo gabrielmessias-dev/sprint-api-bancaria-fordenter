@@ -8,4 +8,5 @@ public interface IContaRepository
     Task<Conta?> ObterPorIdAsync(int id);
     Task<List<Conta>> ObterPorClienteAsync(int clienteId);
     Task RemoverAsync(Conta conta);
+    Task AtualizarAsync(Conta conta);
 }

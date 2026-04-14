@@ -3,9 +3,9 @@
 // Enum fora da classe
 public enum TipoTransacao
 {
-    Deposito,
-    Saque,
-    Transferencia
+    Deposito = 1,
+    Saque = 2,
+    Transferencia = 3
 }
 
 public class Transacao
