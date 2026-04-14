@@ -8,10 +8,12 @@ using System.Text;
 public class AuthService
 {
     private readonly IClienteRepository _clienteRepository;
+    private readonly IConfiguration _configuration;
 
-    public AuthService(IClienteRepository clienteRepository)
+    public AuthService(IClienteRepository clienteRepository, IConfiguration configuration)
     {
         _clienteRepository = clienteRepository;
+        _configuration = configuration;
     }
 
     public async Task<string> Login(LoginDto dto)
@@ -22,7 +24,8 @@ public class AuthService
             throw new Exception("CPF ou senha inválidos");
 
         var tokenHandler = new JwtSecurityTokenHandler();
-        var key = Encoding.ASCII.GetBytes("SEGREDO_SUPER_SEGURO_123");
+
+        var key = Encoding.UTF8.GetBytes(_configuration["Jwt:Key"]);
 
         var tokenDescriptor = new SecurityTokenDescriptor
         {
@@ -32,6 +35,10 @@ public class AuthService
                 new Claim(ClaimTypes.Name, cliente.Nome)
             }),
             Expires = DateTime.UtcNow.AddHours(2),
+
+            Issuer = _configuration["Jwt:Issuer"],
+            Audience = _configuration["Jwt:Audience"],
+
             SigningCredentials = new SigningCredentials(
                 new SymmetricSecurityKey(key),
                 SecurityAlgorithms.HmacSha256Signature)
