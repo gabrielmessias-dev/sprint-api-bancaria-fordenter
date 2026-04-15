@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using API_bancaria.Models;
 
 namespace API_bancaria.DTOs.Transacoes;
 

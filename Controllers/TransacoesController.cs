@@ -10,13 +10,7 @@ namespace API_bancaria.Controllers;
 [Route("api/[controller]")]
 public class TransacoesController : ControllerBase
 {
-    private readonly ITransacaoService _service;
     private readonly ITransacaoService _transacaoService;
-
-    public TransacoesController(ITransacaoService service)
-    {
-        _service = service;
-    }
 
     public TransacoesController(ITransacaoService transacaoService)
     {
@@ -29,7 +23,7 @@ public class TransacoesController : ControllerBase
         if (!ModelState.IsValid)
             return BadRequest(ModelState);
 
-        await _service.DepositoAsync(dto);
+        await _transacaoService.DepositoAsync(dto);
 
         return Ok(new
         {
@@ -43,7 +37,7 @@ public class TransacoesController : ControllerBase
         if (!ModelState.IsValid)
             return BadRequest(ModelState);
 
-        await _service.SaqueAsync(dto);
+        await _transacaoService.SaqueAsync(dto);
 
         return Ok(new
         {
@@ -52,9 +46,16 @@ public class TransacoesController : ControllerBase
     }
 
     [HttpPost("transferencia")]
-    public async Task<IActionResult> Transferencia(CreateTransacaoDto dto)
+    public async Task<IActionResult> Transferencia([FromBody] CreateTransacaoDto dto)
     {
+        if (!ModelState.IsValid)
+            return BadRequest(ModelState);
+
         await _transacaoService.TransferenciaAsync(dto);
-        return Ok("Transferência realizada com sucesso.");
+
+        return Ok(new
+        {
+            mensagem = "Transferência realizada com sucesso"
+        });
     }
 }
