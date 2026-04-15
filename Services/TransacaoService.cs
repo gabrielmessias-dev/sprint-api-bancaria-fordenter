@@ -2,6 +2,7 @@
 using API_bancaria.Models;
 using API_bancaria.Repositories.Interfaces;
 using API_bancaria.Services.Interfaces;
+using API_bancaria.Exceptions;
 
 public class TransacaoService : ITransacaoService
 {
@@ -16,19 +17,18 @@ public class TransacaoService : ITransacaoService
         _transacaoRepository = transacaoRepository;
     }
 
-    public async Task DepositoAsync(CreateTransacaoDto dto)
+    public async Task DepositoAsync(DepositoDto dto)
     {
+        if (dto.Valor <= 0)
+            throw new ValorInvalidoException();
+
         var conta = await _contaRepository.ObterPorIdAsync(dto.ContaId);
 
         if (conta == null)
-            throw new KeyNotFoundException("Conta não encontrada.");
-
-        if (dto.Valor <= 0)
-            throw new Exception("Valor inválido.");
+            throw new ContaNaoEncontradaException();
 
         conta.Saldo += dto.Valor;
 
-        // Salvar alteração do saldo
         await _contaRepository.AtualizarAsync(conta);
 
         var transacao = new Transacao
@@ -42,22 +42,21 @@ public class TransacaoService : ITransacaoService
         await _transacaoRepository.CriarAsync(transacao);
     }
 
-    public async Task SaqueAsync(CreateTransacaoDto dto)
+    public async Task SaqueAsync(SaqueDto dto)
     {
+        if (dto.Valor <= 0)
+            throw new ValorInvalidoException();
+
         var conta = await _contaRepository.ObterPorIdAsync(dto.ContaId);
 
         if (conta == null)
-            throw new KeyNotFoundException("Conta não encontrada.");
-
-        if (dto.Valor <= 0)
-            throw new Exception("Valor inválido.");
+            throw new ContaNaoEncontradaException();
 
         if (conta.Saldo < dto.Valor)
-            throw new Exception("Saldo insuficiente.");
+            throw new SaldoInsuficienteException();
 
         conta.Saldo -= dto.Valor;
 
-        // Salvar alteração do saldo
         await _contaRepository.AtualizarAsync(conta);
 
         var transacao = new Transacao
@@ -71,26 +70,29 @@ public class TransacaoService : ITransacaoService
         await _transacaoRepository.CriarAsync(transacao);
     }
 
-    public async Task TransferenciaAsync(CreateTransacaoDto dto)
+    public async Task TransferenciaAsync(TransferenciaDto dto)
     {
+        if (dto.Valor <= 0)
+            throw new ValorInvalidoException();
+
+        if (dto.ContaDestinoId <= 0)
+            throw new ContaDestinoObrigatoriaException();
+
+        if (dto.ContaId == dto.ContaDestinoId)
+            throw new TransferenciaInvalidaException();
+
         var contaOrigem = await _contaRepository.ObterPorIdAsync(dto.ContaId);
 
         if (contaOrigem == null)
-            throw new KeyNotFoundException("Conta de origem não encontrada.");
+            throw new ContaNaoEncontradaException();
 
-        if (dto.Valor <= 0)
-            throw new Exception("Valor inválido.");
-
-        if (!dto.ContaDestinoId.HasValue)
-            throw new Exception("Conta destino é obrigatória.");
-
-        var contaDestino = await _contaRepository.ObterPorIdAsync(dto.ContaDestinoId.Value);
+        var contaDestino = await _contaRepository.ObterPorIdAsync(dto.ContaDestinoId);
 
         if (contaDestino == null)
-            throw new KeyNotFoundException("Conta destino não encontrada.");
+            throw new ContaNaoEncontradaException();
 
         if (contaOrigem.Saldo < dto.Valor)
-            throw new Exception("Saldo insuficiente.");
+            throw new SaldoInsuficienteException();
 
         // Débito na origem
         contaOrigem.Saldo -= dto.Valor;
@@ -98,11 +100,9 @@ public class TransacaoService : ITransacaoService
         // Crédito no destino
         contaDestino.Saldo += dto.Valor;
 
-        // Salvar ambas contas
         await _contaRepository.AtualizarAsync(contaOrigem);
         await _contaRepository.AtualizarAsync(contaDestino);
 
-        // Transação de saída (origem)
         var transacaoSaida = new Transacao
         {
             ContaId = contaOrigem.Id,
@@ -111,7 +111,6 @@ public class TransacaoService : ITransacaoService
             Data = DateTime.UtcNow
         };
 
-        // Transação de entrada (destino)
         var transacaoEntrada = new Transacao
         {
             ContaId = contaDestino.Id,

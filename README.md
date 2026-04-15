@@ -65,7 +65,6 @@ Controllers → Services → Repositories → Database
 * Id
 * Valor
 * Tipo (Depósito, Saque, Transferência)
-* Data
 * ContaId
 
 ---
@@ -173,7 +172,7 @@ A API possui documentação interativa.
 ### ▶️ Acesso
 
 ```bash
-http://localhost:5104/swagger
+http://localhost:xxxx/swagger
 ```
 
 ### 🔐 Como autenticar
@@ -202,7 +201,7 @@ Bearer SEU_TOKEN
 ### 1. Clonar o projeto
 
 ```bash
-git clone https://github.com/seu-usuario/seu-repositorio.git
+git clone https://github.com/gabrielmessias-dev/sprint-api-bancaria-fordenter.git
 ```
 
 ---

@@ -4,7 +4,7 @@ namespace API_bancaria.Services.Interfaces;
 
 public interface ITransacaoService
 {
-    Task DepositoAsync(CreateTransacaoDto dto);
-    Task SaqueAsync(CreateTransacaoDto dto);
-    Task TransferenciaAsync(CreateTransacaoDto dto);
+    Task DepositoAsync(DepositoDto dto);
+    Task SaqueAsync(SaqueDto dto);
+    Task TransferenciaAsync(TransferenciaDto dto);
 }

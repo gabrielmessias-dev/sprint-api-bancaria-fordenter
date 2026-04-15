@@ -18,7 +18,7 @@ public class TransacoesController : ControllerBase
     }
 
     [HttpPost("deposito")]
-    public async Task<IActionResult> Deposito([FromBody] CreateTransacaoDto dto)
+    public async Task<IActionResult> Deposito([FromBody] DepositoDto dto)
     {
         if (!ModelState.IsValid)
             return BadRequest(ModelState);
@@ -32,7 +32,7 @@ public class TransacoesController : ControllerBase
     }
 
     [HttpPost("saque")]
-    public async Task<IActionResult> Saque([FromBody] CreateTransacaoDto dto)
+    public async Task<IActionResult> Saque([FromBody] SaqueDto dto)
     {
         if (!ModelState.IsValid)
             return BadRequest(ModelState);
@@ -46,7 +46,7 @@ public class TransacoesController : ControllerBase
     }
 
     [HttpPost("transferencia")]
-    public async Task<IActionResult> Transferencia([FromBody] CreateTransacaoDto dto)
+    public async Task<IActionResult> Transferencia([FromBody] TransferenciaDto dto)
     {
         if (!ModelState.IsValid)
             return BadRequest(ModelState);
