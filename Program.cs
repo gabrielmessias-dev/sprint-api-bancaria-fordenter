@@ -94,7 +94,7 @@ builder.Services.AddDbContext<AppDbContext>(options =>
 
 var app = builder.Build();
 
-// Middleware
+// Middleware //
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
