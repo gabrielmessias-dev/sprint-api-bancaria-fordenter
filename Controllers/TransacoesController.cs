@@ -58,4 +58,11 @@ public class TransacoesController : ControllerBase
             mensagem = "Transferência realizada com sucesso"
         });
     }
+
+    [HttpGet("conta/{contaId}")]
+    public async Task<IActionResult> GetExtrato(int contaId)
+    {
+        var transacoes = await _transacaoService.GetExtratoAsync(contaId);
+        return Ok(transacoes);
+    }
 }

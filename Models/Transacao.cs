@@ -19,4 +19,6 @@ public class Transacao
 
     public int ContaId { get; set; }
     public Conta Conta { get; set; } = null!;
+
+    public int? ContaDestinoId { get; set; }
 }

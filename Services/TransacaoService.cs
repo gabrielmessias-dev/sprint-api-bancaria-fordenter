@@ -8,13 +8,16 @@ public class TransacaoService : ITransacaoService
 {
     private readonly IContaRepository _contaRepository;
     private readonly ITransacaoRepository _transacaoRepository;
+    private readonly ITransacaoRepository _repository;
 
     public TransacaoService(
         IContaRepository contaRepository,
-        ITransacaoRepository transacaoRepository)
+        ITransacaoRepository transacaoRepository,
+        ITransacaoRepository repository)
     {
         _contaRepository = contaRepository;
         _transacaoRepository = transacaoRepository;
+        _repository = repository;
     }
 
     public async Task DepositoAsync(DepositoDto dto)
@@ -121,5 +124,10 @@ public class TransacaoService : ITransacaoService
 
         await _transacaoRepository.CriarAsync(transacaoSaida);
         await _transacaoRepository.CriarAsync(transacaoEntrada);
+    }
+
+    public async Task<List<Transacao>> GetExtratoAsync(int contaId)
+    {
+        return await _repository.GetByContaIdAsync(contaId);
     }
 }
