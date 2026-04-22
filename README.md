@@ -130,7 +130,7 @@ GET /api/Transacoes/conta/{contaId}
 ------------------------------------------------------------------------
 
 ## 🚀 Como Rodar
-
+```
 git clone
 https://github.com/gabrielmessias-dev/sprint-api-bancaria-fordenter.git
 
@@ -139,6 +139,7 @@ cd sprint-api-bancaria-fordenter
 dotnet ef database update
 
 dotnet run
+```
 
 ------------------------------------------------------------------------
 
