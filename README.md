@@ -1,298 +1,182 @@
 # 💰 API Bancária - Ford Enter
 
+![.NET](https://img.shields.io/badge/.NET-8.0-purple)
+![MySQL](https://img.shields.io/badge/MySQL-Database-blue)
+![JWT](https://img.shields.io/badge/Auth-JWT-green)
+![Status](https://img.shields.io/badge/status-em%20desenvolvimento-yellow)
+
+------------------------------------------------------------------------
+
 ## 📌 Sobre o Projeto
 
-API bancária desenvolvida com **ASP.NET Core (.NET 8)**, seguindo os princípios da **arquitetura REST**, com autenticação via **JWT (JSON Web Token)** e documentação interativa com **Swagger**.
+API bancária desenvolvida com **ASP.NET Core (.NET 8)**, seguindo
+princípios de **arquitetura REST**, com autenticação via **JWT** e
+documentação com **Swagger**.
 
-O sistema simula operações bancárias reais, incluindo:
+Este projeto simula um sistema bancário real, incluindo:
 
-* 👤 Gerenciamento de clientes
-* 💳 Gerenciamento de contas
-* 💸 Transações (Depósito, Saque e Transferência)
+-   👤 Cadastro e gerenciamento de clientes\
+-   💳 Criação e gerenciamento de contas\
+-   💸 Transações financeiras (Depósito, Saque e Transferência)\
+-   📄 Extrato bancário
 
----
+------------------------------------------------------------------------
 
-## 🚀 Tecnologias Utilizadas
+## 🧠 Arquitetura
 
-* ASP.NET Core (.NET 8)
-* Entity Framework Core
-* MySQL
-* Pomelo (MySQL Provider)
-* Swagger (OpenAPI)
-* JWT Authentication
+Arquitetura em camadas:
 
----
-
-## 🏗️ Arquitetura
-
-O projeto segue arquitetura em camadas:
-
-```bash
 Controllers → Services → Repositories → Database
-```
 
-### 📂 Estrutura
+Separação clara de responsabilidades:
 
-* **Controllers** → Endpoints da API
-* **Services** → Regras de negócio
-* **Repositories** → Acesso ao banco
-* **Models** → Entidades
-* **DTOs** → Transferência de dados
-* **Middlewares** → Tratamento de erros
+-   Controllers: entrada HTTP\
+-   Services: regras de negócio\
+-   Repositories: persistência\
+-   Models/DTOs: estrutura de dados
 
----
+------------------------------------------------------------------------
 
-## 🗂️ Modelagem
+## 🚀 Tecnologias
 
-### 📌 Entidades
+-   ASP.NET Core (.NET 8)
+-   Entity Framework Core
+-   MySQL
+-   Pomelo Provider
+-   JWT Authentication
+-   Swagger (OpenAPI)
 
-#### 👤 Cliente
+------------------------------------------------------------------------
 
-* Id
-* Nome
-* CPF
-* Senha
+## 🔐 Autenticação
 
-#### 💳 Conta
+Fluxo:
 
-* Id
-* Número
-* Saldo
-* ClienteId
+1.  Login com CPF + senha\
+2.  Retorno de token JWT\
+3.  Token enviado nas requisições
 
-#### 💸 Transação
+Exemplo:
 
-* Id
-* Valor
-* Tipo (Depósito, Saque, Transferência)
-* ContaId
+Authorization: Bearer SEU_TOKEN
 
----
+------------------------------------------------------------------------
 
-### 🔗 Relacionamentos
+## 📄 Extrato Bancário
 
-* Um **Cliente** possui várias **Contas**
-* Uma **Conta** possui várias **Transações**
+Endpoint:
 
----
+GET /api/Transacoes/conta/{contaId}
 
-## 🌐 Arquitetura REST
+Retorna todas as transações da conta:
 
-A API segue os princípios REST:
+-   Tipo
+-   Valor
+-   Data
 
-* Comunicação via JSON
-* Stateless
-* Uso correto dos métodos HTTP
-* URLs semânticas
-
----
-
-## 🔄 Métodos HTTP
-
-| Método | Descrição       |
-| ------ | --------------- |
-| GET    | Buscar dados    |
-| POST   | Criar dados     |
-| PUT    | Atualizar dados |
-| DELETE | Remover dados   |
-
----
-
-## 📡 Status Codes
-
-| Código | Descrição           |
-| ------ | ------------------- |
-| 200    | OK                  |
-| 201    | Criado              |
-| 400    | Requisição inválida |
-| 401    | Não autorizado      |
-| 404    | Não encontrado      |
-| 500    | Erro interno        |
-
----
-
-## 🔐 Autenticação JWT
-
-A API utiliza autenticação baseada em **JWT**.
-
-### 🔑 Fluxo de autenticação
-
-1. O usuário realiza login com CPF e senha
-2. A API gera um token JWT
-3. O token deve ser enviado nas requisições protegidas
-
-### 📌 Exemplo
-
-```http
-Authorization: Bearer SEU_TOKEN_AQUI
-```
-
----
+------------------------------------------------------------------------
 
 ## 💸 Transações
 
-### ✔️ Tipos suportados
+Tipos:
 
-* **Depósito** → Adiciona saldo à conta
-* **Saque** → Remove saldo da conta
-* **Transferência** → Move saldo entre contas
+-   Depósito\
+-   Saque\
+-   Transferência
 
----
+Transferência realiza:
 
-### 🔁 Transferência (Destaque do Projeto)
+-   Débito na origem\
+-   Crédito no destino\
+-   Registro duplo no histórico
 
-A transferência realiza:
-
-* Débito na conta de origem
-* Crédito na conta de destino
-* Registro de duas transações:
-
-  * Saída (Transferência)
-  * Entrada (Depósito)
-
----
-
-### 📌 Exemplo de requisição (Transferência)
-
-```json
-{
-  "valor": 100,
-  "tipo": 3,
-  "contaId": 1,
-  "contaDestinoId": 2
-}
-```
-
----
-
-## 🧪 Swagger
-
-A API possui documentação interativa.
-
-### ▶️ Acesso
-
-```bash
-http://localhost:xxxx/swagger
-```
-
-### 🔐 Como autenticar
-
-1. Fazer login
-2. Copiar o token
-3. Clicar em **Authorize 🔒**
-4. Inserir:
-
-```bash
-Bearer SEU_TOKEN
-```
-
----
-
-## 🗄️ Banco de Dados
-
-* MySQL
-* Entity Framework Core
-* Migrations
-
----
-
-## 🚀 Como Executar
-
-### 1. Clonar o projeto
-
-```bash
-git clone https://github.com/gabrielmessias-dev/sprint-api-bancaria-fordenter.git
-```
-
----
-
-### 2. Configurar banco
-
-No `appsettings.json`:
-
-```json
-"ConnectionStrings": {
-  "DefaultConnection": "server=localhost;port=3306;database=api_bancaria;user=root;password=sua_senha"
-}
-```
-
----
-
-### 3. Aplicar migrations
-
-```bash
-dotnet ef database update
-```
-
----
-
-### 4. Executar projeto
-
-```bash
-dotnet run
-```
-
----
+------------------------------------------------------------------------
 
 ## 📌 Endpoints
 
-### 🔐 Auth
+### Auth
 
-* `POST /api/Auth/login`
+POST /api/Auth/login
 
-### 👤 Clientes
+### Clientes
 
-* `POST /api/Clientes`
-* `GET /api/Clientes`
-* `GET /api/Clientes/{id}`
-* `PUT /api/Clientes/{id}`
-* `DELETE /api/Clientes/{id}`
+POST /api/Clientes\
+GET /api/Clientes\
+GET /api/Clientes/{id}\
+PUT /api/Clientes/{id}\
+DELETE /api/Clientes/{id}
 
-### 💳 Contas
+### Contas
 
-* `POST /api/Contas`
-* `GET /api/Contas/{id}`
+POST /api/Contas\
+GET /api/Contas/{id}\
+GET /api/Contas/cliente/{clienteId}
 
-### 💸 Transações
+### Transações
 
-* `POST /api/Transacoes/deposito`
-* `POST /api/Transacoes/saque`
-* `POST /api/Transacoes/transferencia`
+POST /api/Transacoes/deposito\
+POST /api/Transacoes/saque\
+POST /api/Transacoes/transferencia\
+GET /api/Transacoes/conta/{contaId}
 
----
+------------------------------------------------------------------------
+
+## 🗄️ Banco de Dados
+
+-   MySQL
+-   EF Core
+-   Migrations
+
+------------------------------------------------------------------------
+
+## 🚀 Como Rodar
+
+git clone
+https://github.com/gabrielmessias-dev/sprint-api-bancaria-fordenter.git
+
+cd sprint-api-bancaria-fordenter
+
+dotnet ef database update
+
+dotnet run
+
+------------------------------------------------------------------------
+
+## 🧪 Swagger
+
+http://localhost:xxxx/swagger
+
+------------------------------------------------------------------------
 
 ## ⚠️ Tratamento de Erros
 
-A API utiliza middleware global para:
+Middleware global para:
 
-* Padronização de respostas
-* Melhor controle de exceções
-* Retorno adequado de status HTTP
+-   Padronização
+-   Logs
+-   Status HTTP corretos
 
----
-
-## 🔍 Validações
-
-* `[Required]`
-* `[MinLength]`
-* `[MaxLength]`
-
----
+------------------------------------------------------------------------
 
 ## 👨‍💻 Autor
 
-**Gabriel Messias**
+Gabriel Messias
 
----
+------------------------------------------------------------------------
 
-## ⭐ Considerações Finais
+## ⭐ Destaques
 
-Este projeto demonstra:
+-   Arquitetura limpa\
+-   JWT implementado\
+-   CRUD completo\
+-   Transações financeiras reais\
+-   Extrato bancário funcional
 
-* Aplicação prática de arquitetura REST
-* Implementação de autenticação com JWT
-* Uso de Entity Framework Core
-* Estrutura profissional em camadas
-* Simulação de operações bancárias reais
+------------------------------------------------------------------------
 
----
+## 🚀 Próximos passos
+
+-   Deploy em produção\
+-   Dashboard financeiro\
+-   Filtros no extrato\
+-   UI completa em React
