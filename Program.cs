@@ -105,7 +105,10 @@ builder.Services.AddAuthentication(options =>
 
         ValidIssuer = jwtIssuer,
         ValidAudience = jwtAudience,
-        IssuerSigningKey = new SymmetricSecurityKey(key)
+        IssuerSigningKey = new SymmetricSecurityKey(key),
+
+        NameClaimType = "name",
+        RoleClaimType = "role"
     };
 });
 
