@@ -11,24 +11,29 @@ using Microsoft.OpenApi.Models;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services
+// =====================
+// SERVICES
+// =====================
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 
-// CORS CONFIG
+// =====================
+// CORS
+// =====================
 builder.Services.AddCors(options =>
 {
-    options.AddPolicy("AllowFrontend",
-        policy =>
-        {
-            policy
-                .WithOrigins("http://localhost:5173")
-                .AllowAnyHeader()
-                .AllowAnyMethod();
-        });
+    options.AddPolicy("AllowFrontend", policy =>
+    {
+        policy
+        .WithOrigins("http://localhost:5173")
+        .AllowAnyHeader()
+        .AllowAnyMethod();
+    });
 });
 
-// SWAGGER COM JWT
+// =====================
+// SWAGGER + JWT
+// =====================
 builder.Services.AddSwaggerGen(options =>
 {
     options.SwaggerDoc("v1", new OpenApiInfo
@@ -39,7 +44,7 @@ builder.Services.AddSwaggerGen(options =>
 
     options.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
     {
-        Description = "Digite: {seu token}",
+        Description = "Digite: Bearer {seu token}",
         Name = "Authorization",
         In = ParameterLocation.Header,
         Type = SecuritySchemeType.Http,
@@ -48,23 +53,33 @@ builder.Services.AddSwaggerGen(options =>
     });
 
     options.AddSecurityRequirement(new OpenApiSecurityRequirement
+{
     {
+        new OpenApiSecurityScheme
         {
-            new OpenApiSecurityScheme
+            Reference = new OpenApiReference
             {
-                Reference = new OpenApiReference
-                {
-                    Type = ReferenceType.SecurityScheme,
-                    Id = "Bearer"
-                }
-            },
-            Array.Empty<string>()
-        }
-    });
+                Type = ReferenceType.SecurityScheme,
+                Id = "Bearer"
+            }
+        },
+        Array.Empty<string>()
+    }
 });
 
-// JWT CONFIG
-var key = Encoding.UTF8.GetBytes(builder.Configuration["Jwt:Key"]);
+});
+
+// =====================
+// JWT
+// =====================
+var jwtKey = builder.Configuration["Jwt"];
+
+if (string.IsNullOrEmpty(jwtKey))
+{
+    throw new Exception("Jwt não configurado!");
+}
+
+var key = Encoding.UTF8.GetBytes(jwtKey);
 
 builder.Services.AddAuthentication(options =>
 {
@@ -88,9 +103,12 @@ builder.Services.AddAuthentication(options =>
 
         IssuerSigningKey = new SymmetricSecurityKey(key)
     };
+
 });
 
-// DI
+// =====================
+// DEPENDENCY INJECTION
+// =====================
 builder.Services.AddScoped<IClienteRepository, ClienteRepository>();
 builder.Services.AddScoped<IClienteService, ClienteService>();
 builder.Services.AddScoped<IContaRepository, ContaRepository>();
@@ -99,27 +117,47 @@ builder.Services.AddScoped<ITransacaoRepository, TransacaoRepository>();
 builder.Services.AddScoped<ITransacaoService, TransacaoService>();
 builder.Services.AddScoped<AuthService>();
 
-// PostgreSQL (Antes MySQL para testes locais)
+// =====================
+// DATABASE (PostgreSQL)
+// =====================
 var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
+
+if (string.IsNullOrEmpty(connectionString))
+{
+    throw new Exception("Connection string não configurada!");
+}
 
 builder.Services.AddDbContext<AppDbContext>(options =>
     options.UseNpgsql(connectionString));
 
+// =====================
+// APP
+// =====================
 var app = builder.Build();
 
-// Middleware
-if (app.Environment.IsDevelopment())
-{
-    app.UseSwagger();
-    app.UseSwaggerUI();
-}
+// =====================
+// MIDDLEWARES
+// =====================
 
-// CORS TEM QUE VIR ANTES DO AUTH
+// Swagger liberado em produção
+app.UseSwagger();
+app.UseSwaggerUI(c =>
+{
+    c.SwaggerEndpoint("/swagger/v1/swagger.json", "API Bancária V1");
+    c.RoutePrefix = string.Empty;
+});
+
+// CORS
 app.UseCors("AllowFrontend");
 
+// Auth
 app.UseAuthentication();
 app.UseAuthorization();
 
+// Rota raiz
+app.MapGet("/", () => "API Bancária rodando 🚀");
+
+// Controllers
 app.MapControllers();
 
 app.Run();
