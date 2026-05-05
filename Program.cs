@@ -11,6 +11,9 @@ using Microsoft.OpenApi.Models;
 
 var builder = WebApplication.CreateBuilder(args);
 
+// 🔥 GARANTE LEITURA DAS ENVS DO RENDER
+builder.Configuration.AddEnvironmentVariables();
+
 // =====================
 // SERVICES
 // =====================
@@ -25,7 +28,7 @@ builder.Services.AddCors(options =>
     options.AddPolicy("AllowFrontend", policy =>
     {
         policy
-        .WithOrigins("http://localhost:5173")
+        .AllowAnyOrigin() // 🔥 importante para produção (Render)
         .AllowAnyHeader()
         .AllowAnyMethod();
     });
@@ -53,29 +56,31 @@ builder.Services.AddSwaggerGen(options =>
     });
 
     options.AddSecurityRequirement(new OpenApiSecurityRequirement
-{
     {
-        new OpenApiSecurityScheme
         {
-            Reference = new OpenApiReference
+            new OpenApiSecurityScheme
             {
-                Type = ReferenceType.SecurityScheme,
-                Id = "Bearer"
-            }
-        },
-        Array.Empty<string>()
-    }
-});
-
+                Reference = new OpenApiReference
+                {
+                    Type = ReferenceType.SecurityScheme,
+                    Id = "Bearer"
+                }
+            },
+            Array.Empty<string>()
+        }
+    });
 });
 
 // =====================
-// JWT
+// JWT (CORRIGIDO)
 // =====================
-var jwtKey = builder.Configuration["Jwt"];
+var jwtKey = builder.Configuration["Jwt:Key"];
+var jwtIssuer = builder.Configuration["Jwt:Issuer"];
+var jwtAudience = builder.Configuration["Jwt:Audience"];
 
-if (string.IsNullOrEmpty(jwtKey))
+if (string.IsNullOrWhiteSpace(jwtKey))
 {
+    Console.WriteLine("JWT KEY NÃO ENCONTRADA!");
     throw new Exception("Jwt não configurado!");
 }
 
@@ -98,12 +103,10 @@ builder.Services.AddAuthentication(options =>
         ValidateLifetime = true,
         ValidateIssuerSigningKey = true,
 
-        ValidIssuer = builder.Configuration["Jwt:Issuer"],
-        ValidAudience = builder.Configuration["Jwt:Audience"],
-
+        ValidIssuer = jwtIssuer,
+        ValidAudience = jwtAudience,
         IssuerSigningKey = new SymmetricSecurityKey(key)
     };
-
 });
 
 // =====================
@@ -122,8 +125,9 @@ builder.Services.AddScoped<AuthService>();
 // =====================
 var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
 
-if (string.IsNullOrEmpty(connectionString))
+if (string.IsNullOrWhiteSpace(connectionString))
 {
+    Console.WriteLine("CONNECTION STRING NÃO ENCONTRADA!");
     throw new Exception("Connection string não configurada!");
 }
 
