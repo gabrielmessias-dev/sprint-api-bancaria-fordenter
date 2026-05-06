@@ -1,183 +1,94 @@
-# 💰 API Bancária - Ford Enter
-
-![.NET](https://img.shields.io/badge/.NET-8.0-purple)
-![MySQL](https://img.shields.io/badge/MySQL-Database-blue)
-![JWT](https://img.shields.io/badge/Auth-JWT-green)
-![Status](https://img.shields.io/badge/status-em%20desenvolvimento-yellow)
-
-------------------------------------------------------------------------
-
-## 📌 Sobre o Projeto
-
-API bancária desenvolvida com **ASP.NET Core (.NET 8)**, seguindo
-princípios de **arquitetura REST**, com autenticação via **JWT** e
-documentação com **Swagger**.
-
-Este projeto simula um sistema bancário real, incluindo:
-
--   👤 Cadastro e gerenciamento de clientes\
--   💳 Criação e gerenciamento de contas\
--   💸 Transações financeiras (Depósito, Saque e Transferência)\
--   📄 Extrato bancário
-
-------------------------------------------------------------------------
-
-## 🧠 Arquitetura
-
-Arquitetura em camadas:
-
-Controllers → Services → Repositories → Database
-
-Separação clara de responsabilidades:
-
--   Controllers: entrada HTTP\
--   Services: regras de negócio\
--   Repositories: persistência\
--   Models/DTOs: estrutura de dados
-
-------------------------------------------------------------------------
-
-## 🚀 Tecnologias
-
--   ASP.NET Core (.NET 8)
--   Entity Framework Core
--   MySQL
--   Pomelo Provider
--   JWT Authentication
--   Swagger (OpenAPI)
-
-------------------------------------------------------------------------
-
-## 🔐 Autenticação
-
-Fluxo:
-
-1.  Login com CPF + senha\
-2.  Retorno de token JWT\
-3.  Token enviado nas requisições
-
-Exemplo:
-
+💰 API Bancária - Ford Enter (Full Stack)
+<p align="center">
+  <img src="https://img.shields.io/badge/.NET-8-512BD4?style=for-the-badge&logo=dotnet" />
+  <img src="https://img.shields.io/badge/C%23-Backend-239120?style=for-the-badge&logo=csharp" />
+  <img src="https://img.shields.io/badge/React-Frontend-61DAFB?style=for-the-badge&logo=react" />
+  <img src="https://img.shields.io/badge/PostgreSQL-Database-336791?style=for-the-badge&logo=postgresql" />
+  <img src="https://img.shields.io/badge/Docker-Container-2496ED?style=for-the-badge&logo=docker" />
+  <img src="https://img.shields.io/badge/Render-Deploy-46E3B7?style=for-the-badge&logo=render" />
+</p>
+---
+📌 Sobre o Projeto
+Sistema bancário completo desenvolvido com arquitetura unificada (Modern Monolith).
+O backend em .NET 8 também é responsável por servir o frontend em React, através da pasta `wwwroot`, eliminando problemas de CORS e simplificando o deploy.
+---
+🧠 Diferencial Técnico (Arquitetura)
+Este projeto utiliza o conceito de SPA Hosting (Single Page Application Hosting) com ASP.NET Core.
+✔️ API + Frontend no mesmo servidor  
+✔️ React buildado dentro do backend  
+✔️ Sem problemas de CORS  
+✔️ Deploy simplificado
+---
+🚀 Tech Stack
+🔧 Backend
+C# (.NET 8)
+Entity Framework Core
+JWT Authentication
+Swagger / OpenAPI
+🎨 Frontend
+React (Vite)
+Tailwind CSS
+Axios
+React Router DOM
+🗄️ Banco de Dados
+PostgreSQL
+☁️ Infraestrutura
+Docker
+Render
+---
+⚙️ Funcionalidades
+Autenticação com JWT
+CRUD de Clientes
+CRUD de Contas
+Depósito, Saque e Transferência
+Extrato bancário
+Swagger integrado
+---
+🔐 Autenticação
+```http
 Authorization: Bearer SEU_TOKEN
-
-------------------------------------------------------------------------
-
-## 📄 Extrato Bancário
-
-Endpoint:
-
-GET /api/Transacoes/conta/{contaId}
-
-Retorna todas as transações da conta:
-
--   Tipo
--   Valor
--   Data
-
-------------------------------------------------------------------------
-
-## 💸 Transações
-
-Tipos:
-
--   Depósito\
--   Saque\
--   Transferência
-
-Transferência realiza:
-
--   Débito na origem\
--   Crédito no destino\
--   Registro duplo no histórico
-
-------------------------------------------------------------------------
-
-## 📌 Endpoints
-
-### Auth
-
-POST /api/Auth/login
-
-### Clientes
-
-POST /api/Clientes\
-GET /api/Clientes\
-GET /api/Clientes/{id}\
-PUT /api/Clientes/{id}\
-DELETE /api/Clientes/{id}
-
-### Contas
-
-POST /api/Contas\
-GET /api/Contas/{id}\
-GET /api/Contas/cliente/{clienteId}
-
-### Transações
-
-POST /api/Transacoes/deposito\
-POST /api/Transacoes/saque\
-POST /api/Transacoes/transferencia\
-GET /api/Transacoes/conta/{contaId}
-
-------------------------------------------------------------------------
-
-## 🗄️ Banco de Dados
-
--   MySQL
--   EF Core
--   Migrations
-
-------------------------------------------------------------------------
-
-## 🚀 Como Rodar
 ```
-git clone
-https://github.com/gabrielmessias-dev/sprint-api-bancaria-fordenter.git
-
+---
+📡 Endpoints
+Auth
+POST /api/Auth/login
+Clientes
+POST /api/Clientes
+GET /api/Clientes
+GET /api/Clientes/{id}
+PUT /api/Clientes/{id}
+DELETE /api/Clientes/{id}
+Contas
+POST /api/Contas
+GET /api/Contas/{id}
+GET /api/Contas/cliente/{clienteId}
+Transações
+POST /api/Transacoes/deposito
+POST /api/Transacoes/saque
+POST /api/Transacoes/transferencia
+GET /api/Transacoes/conta/{contaId}
+---
+▶️ Como Rodar
+```bash
+git clone https://github.com/gabrielmessias-dev/sprint-api-bancaria-fordenter.git
 cd sprint-api-bancaria-fordenter
-
-dotnet ef database update
-
 dotnet run
 ```
-
-------------------------------------------------------------------------
-
-## 🧪 Swagger
-
-http://localhost:xxxx/swagger
-
-------------------------------------------------------------------------
-
-## ⚠️ Tratamento de Erros
-
-Middleware global para:
-
--   Padronização
--   Logs
--   Status HTTP corretos
-
-------------------------------------------------------------------------
-
-## 👨‍💻 Autor
-
-Gabriel Messias
-
-------------------------------------------------------------------------
-
-## ⭐ Destaques
-
--   Arquitetura limpa\
--   JWT implementado\
--   CRUD completo\
--   Transações financeiras reais\
--   Extrato bancário funcional
-
-------------------------------------------------------------------------
-
-## 🚀 Próximos passos
-
--   Deploy em produção\
--   Dashboard financeiro\
--   Filtros no extrato\
--   UI completa em React
+Acesse:
+http://localhost:5104
+http://localhost:5104/swagger
+---
+🌐 Produção
+https://sprint-api-bancaria-fordenter-csharp.onrender.com/
+---
+👨‍💻 Autor
+Gabriel Messias  
+Analista de Sistemas
+GitHub: https://github.com/gabrielmessias-dev
+LinkedIn: https://linkedin.com
+---
+⭐ Destaques
+Arquitetura Modern Monolith
+JWT
+SPA Hosting
+Backend + Frontend unificados
