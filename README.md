@@ -1,183 +1,152 @@
-# 💰 API Bancária - Ford Enter
+# 💰 API Bancária - Ford Enter (Full Stack)
 
-![.NET](https://img.shields.io/badge/.NET-8.0-purple)
-![MySQL](https://img.shields.io/badge/MySQL-Database-blue)
-![JWT](https://img.shields.io/badge/Auth-JWT-green)
-![Status](https://img.shields.io/badge/status-em%20desenvolvimento-yellow)
+<p align="center">
+  <img src="https://img.shields.io/badge/.NET-8-512BD4?style=for-the-badge&logo=dotnet" />
+  <img src="https://img.shields.io/badge/C%23-Backend-239120?style=for-the-badge&logo=csharp" />
+  <img src="https://img.shields.io/badge/React-Frontend-61DAFB?style=for-the-badge&logo=react" />
+  <img src="https://img.shields.io/badge/PostgreSQL-Database-336791?style=for-the-badge&logo=postgresql" />
+  <img src="https://img.shields.io/badge/Docker-Container-2496ED?style=for-the-badge&logo=docker" />
+  <img src="https://img.shields.io/badge/Render-Deploy-46E3B7?style=for-the-badge&logo=render" />
+</p>
 
-------------------------------------------------------------------------
+---
 
 ## 📌 Sobre o Projeto
 
-API bancária desenvolvida com **ASP.NET Core (.NET 8)**, seguindo
-princípios de **arquitetura REST**, com autenticação via **JWT** e
-documentação com **Swagger**.
+Sistema bancário completo desenvolvido com **arquitetura unificada (Modern Monolith)**.
 
-Este projeto simula um sistema bancário real, incluindo:
+O backend em **.NET 8** também serve o frontend em **React** via pasta `wwwroot`, eliminando problemas de CORS e simplificando o deploy.
 
--   👤 Cadastro e gerenciamento de clientes\
--   💳 Criação e gerenciamento de contas\
--   💸 Transações financeiras (Depósito, Saque e Transferência)\
--   📄 Extrato bancário
+---
 
-------------------------------------------------------------------------
+## 🧠 Diferencial Técnico (Arquitetura)
 
-## 🧠 Arquitetura
+Este projeto utiliza **SPA Hosting (Single Page Application Hosting)** com ASP.NET Core.
 
-Arquitetura em camadas:
+* API + Frontend no mesmo servidor
+* React buildado dentro do backend
+* Sem problemas de CORS
+* Deploy simplificado
 
-Controllers → Services → Repositories → Database
+---
 
-Separação clara de responsabilidades:
+## 🚀 Tech Stack
 
--   Controllers: entrada HTTP\
--   Services: regras de negócio\
--   Repositories: persistência\
--   Models/DTOs: estrutura de dados
+### 🔧 Backend
 
-------------------------------------------------------------------------
+* C# (.NET 8)
+* Entity Framework Core
+* JWT Authentication
+* Swagger / OpenAPI
 
-## 🚀 Tecnologias
+### 🎨 Frontend
 
--   ASP.NET Core (.NET 8)
--   Entity Framework Core
--   MySQL
--   Pomelo Provider
--   JWT Authentication
--   Swagger (OpenAPI)
+* React (Vite)
+* Tailwind CSS
+* Axios
+* React Router DOM
 
-------------------------------------------------------------------------
+### 🗄️ Banco de Dados
+
+* PostgreSQL
+
+### ☁️ Infraestrutura
+
+* Docker
+* Render
+
+---
+
+## ⚙️ Funcionalidades
+
+* 🔐 Autenticação com JWT
+* 👤 CRUD de Clientes
+* 💳 CRUD de Contas
+* 💸 Depósito, Saque e Transferência
+* 📄 Extrato bancário
+* 📚 Swagger integrado
+
+---
 
 ## 🔐 Autenticação
 
-Fluxo:
-
-1.  Login com CPF + senha\
-2.  Retorno de token JWT\
-3.  Token enviado nas requisições
-
-Exemplo:
-
+```http
 Authorization: Bearer SEU_TOKEN
-
-------------------------------------------------------------------------
-
-## 📄 Extrato Bancário
-
-Endpoint:
-
-GET /api/Transacoes/conta/{contaId}
-
-Retorna todas as transações da conta:
-
--   Tipo
--   Valor
--   Data
-
-------------------------------------------------------------------------
-
-## 💸 Transações
-
-Tipos:
-
--   Depósito\
--   Saque\
--   Transferência
-
-Transferência realiza:
-
--   Débito na origem\
--   Crédito no destino\
--   Registro duplo no histórico
-
-------------------------------------------------------------------------
-
-## 📌 Endpoints
-
-### Auth
-
-POST /api/Auth/login
-
-### Clientes
-
-POST /api/Clientes\
-GET /api/Clientes\
-GET /api/Clientes/{id}\
-PUT /api/Clientes/{id}\
-DELETE /api/Clientes/{id}
-
-### Contas
-
-POST /api/Contas\
-GET /api/Contas/{id}\
-GET /api/Contas/cliente/{clienteId}
-
-### Transações
-
-POST /api/Transacoes/deposito\
-POST /api/Transacoes/saque\
-POST /api/Transacoes/transferencia\
-GET /api/Transacoes/conta/{contaId}
-
-------------------------------------------------------------------------
-
-## 🗄️ Banco de Dados
-
--   MySQL
--   EF Core
--   Migrations
-
-------------------------------------------------------------------------
-
-## 🚀 Como Rodar
 ```
-git clone
-https://github.com/gabrielmessias-dev/sprint-api-bancaria-fordenter.git
 
+---
+
+## 📡 Endpoints
+
+### 🔑 Auth
+
+| Método | Endpoint        |
+| ------ | --------------- |
+| POST   | /api/Auth/login |
+
+### 👤 Clientes
+
+| Método | Endpoint           |
+| ------ | ------------------ |
+| POST   | /api/Clientes      |
+| GET    | /api/Clientes      |
+| GET    | /api/Clientes/{id} |
+| PUT    | /api/Clientes/{id} |
+| DELETE | /api/Clientes/{id} |
+
+### 💳 Contas
+
+| Método | Endpoint                        |
+| ------ | ------------------------------- |
+| POST   | /api/Contas                     |
+| GET    | /api/Contas/{id}                |
+| GET    | /api/Contas/cliente/{clienteId} |
+
+### 💸 Transações
+
+| Método | Endpoint                        |
+| ------ | ------------------------------- |
+| POST   | /api/Transacoes/deposito        |
+| POST   | /api/Transacoes/saque           |
+| POST   | /api/Transacoes/transferencia   |
+| GET    | /api/Transacoes/conta/{contaId} |
+
+---
+
+## ▶️ Como Rodar
+
+```bash
+git clone https://github.com/gabrielmessias-dev/sprint-api-bancaria-fordenter.git
 cd sprint-api-bancaria-fordenter
-
-dotnet ef database update
-
 dotnet run
 ```
 
-------------------------------------------------------------------------
+### 📍 Acesse:
 
-## 🧪 Swagger
+* http://localhost:5104
+* http://localhost:5104/swagger
 
-http://localhost:xxxx/swagger
+---
 
-------------------------------------------------------------------------
+## 🌐 Produção
 
-## ⚠️ Tratamento de Erros
+👉 https://sprint-api-bancaria-fordenter-csharp.onrender.com/
 
-Middleware global para:
-
--   Padronização
--   Logs
--   Status HTTP corretos
-
-------------------------------------------------------------------------
+---
 
 ## 👨‍💻 Autor
 
-Gabriel Messias
+**Gabriel Messias**
+Analista de Sistemas
 
-------------------------------------------------------------------------
+* GitHub: https://github.com/gabrielmessias-dev
+* LinkedIn: https://linkedin.com
+
+---
 
 ## ⭐ Destaques
 
--   Arquitetura limpa\
--   JWT implementado\
--   CRUD completo\
--   Transações financeiras reais\
--   Extrato bancário funcional
-
-------------------------------------------------------------------------
-
-## 🚀 Próximos passos
-
--   Deploy em produção\
--   Dashboard financeiro\
--   Filtros no extrato\
--   UI completa em React
+* 🚀 Arquitetura Modern Monolith
+* 🔐 JWT Authentication
+* 📦 SPA Hosting
+* 💻 Backend + Frontend unificados
