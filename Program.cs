@@ -8,7 +8,7 @@ using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
 using Microsoft.OpenApi.Models;
-using Microsoft.AspNetCore.HttpOverrides; // Adicionado para Proxy
+using Microsoft.AspNetCore.HttpOverrides;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -21,39 +21,28 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 
 // =====================
-// CORS (Configuração de Produção)
+// CORS (Opcional se unificado, mas mantido para flexibilidade)
 // =====================
 builder.Services.AddCors(options =>
 {
-    options.AddPolicy("AllowVercel", policy =>
-    {
-        policy.WithOrigins("https://react-api-bancaria.vercel.app")
-              .AllowAnyHeader()
-              .AllowAnyMethod()
-              .AllowCredentials();
-    });
-
-    // Policy secundária para testes rápidos
     options.AddPolicy("AllowAny", p => p.AllowAnyOrigin().AllowAnyHeader().AllowAnyMethod());
 });
 
 // =====================
-// SWAGGER (Configurado para Bearer automático)
+// SWAGGER
 // =====================
 builder.Services.AddSwaggerGen(options =>
 {
     options.SwaggerDoc("v1", new OpenApiInfo { Title = "API Bancária", Version = "v1" });
-
     options.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
     {
-        Description = "Insira apenas o token JWT (O prefixo 'Bearer ' será adicionado automaticamente)",
+        Description = "Insira apenas o token JWT",
         Name = "Authorization",
         In = ParameterLocation.Header,
         Type = SecuritySchemeType.Http,
         Scheme = "bearer",
         BearerFormat = "JWT"
     });
-
     options.AddSecurityRequirement(new OpenApiSecurityRequirement
     {
         {
@@ -67,13 +56,13 @@ builder.Services.AddSwaggerGen(options =>
 });
 
 // =====================
-// JWT (Suporte a Variáveis do Render/Linux)
+// JWT
 // =====================
 var jwtKey = builder.Configuration["Jwt:Key"] ?? builder.Configuration["Jwt__Key"];
 var jwtIssuer = builder.Configuration["Jwt:Issuer"] ?? builder.Configuration["Jwt__Issuer"];
 var jwtAudience = builder.Configuration["Jwt:Audience"] ?? builder.Configuration["Jwt__Audience"];
 
-if (string.IsNullOrEmpty(jwtKey)) throw new Exception("Erro: JWT Key não configurada nas variáveis de ambiente!");
+if (string.IsNullOrEmpty(jwtKey)) throw new Exception("Erro: JWT Key não configurada!");
 
 var key = Encoding.UTF8.GetBytes(jwtKey);
 
@@ -84,7 +73,7 @@ builder.Services.AddAuthentication(options =>
 })
 .AddJwtBearer(options =>
 {
-    options.RequireHttpsMetadata = false; // Render faz o Offload do SSL
+    options.RequireHttpsMetadata = false;
     options.SaveToken = true;
     options.TokenValidationParameters = new TokenValidationParameters
     {
@@ -117,29 +106,33 @@ builder.Services.AddDbContext<AppDbContext>(options => options.UseNpgsql(connect
 var app = builder.Build();
 
 // =====================
-// MIDDLEWARES (A ordem importa!)
+// MIDDLEWARES
 // =====================
 
-// 1. Headers de Proxy (Importante para o Render)
 app.UseForwardedHeaders(new ForwardedHeadersOptions
 {
     ForwardedHeaders = ForwardedHeaders.XForwardedFor | ForwardedHeaders.XForwardedProto
 });
 
+// Swagger configurado para não "atropelar" o React
 app.UseSwagger();
 app.UseSwaggerUI(c => {
     c.SwaggerEndpoint("/swagger/v1/swagger.json", "API Bancária V1");
-    c.RoutePrefix = string.Empty;
+    // Agora o Swagger fica em /swagger e a raiz fica livre para o React
 });
 
-// 2. CORS deve vir antes da Auth
-app.UseCors("AllowAny"); // Use a policy definida acima
+app.UseCors("AllowAny");
+
+// ORDEM IMPORTANTE PARA SERVIR O FRONTEND
+app.UseDefaultFiles(); // Procura index.html na wwwroot
+app.UseStaticFiles();  // Serve arquivos de JS, CSS e Imagens
 
 app.UseAuthentication();
 app.UseAuthorization();
 
-app.MapGet("/", () => "API Bancária rodando 🚀");
 app.MapControllers();
+
+app.MapFallbackToFile("index.html");
 
 using (var scope = app.Services.CreateScope())
 {
