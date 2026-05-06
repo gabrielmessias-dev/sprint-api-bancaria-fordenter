@@ -8,10 +8,10 @@ using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
 using Microsoft.OpenApi.Models;
+using Microsoft.AspNetCore.HttpOverrides; // Adicionado para Proxy
 
 var builder = WebApplication.CreateBuilder(args);
 
-// 🔥 GARANTE LEITURA DAS ENVS DO RENDER
 builder.Configuration.AddEnvironmentVariables();
 
 // =====================
@@ -21,33 +21,32 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 
 // =====================
-// CORS
+// CORS (Configuração de Produção)
 // =====================
 builder.Services.AddCors(options =>
 {
-    options.AddPolicy("AllowFrontend", policy =>
+    options.AddPolicy("AllowVercel", policy =>
     {
-        policy
-        .AllowAnyOrigin() // 🔥 importante para produção (Render)
-        .AllowAnyHeader()
-        .AllowAnyMethod();
+        policy.WithOrigins("https://react-api-bancaria.vercel.app")
+              .AllowAnyHeader()
+              .AllowAnyMethod()
+              .AllowCredentials();
     });
+
+    // Policy secundária para testes rápidos
+    options.AddPolicy("AllowAny", p => p.AllowAnyOrigin().AllowAnyHeader().AllowAnyMethod());
 });
 
 // =====================
-// SWAGGER + JWT
+// SWAGGER (Configurado para Bearer automático)
 // =====================
 builder.Services.AddSwaggerGen(options =>
 {
-    options.SwaggerDoc("v1", new OpenApiInfo
-    {
-        Title = "API Bancária",
-        Version = "v1"
-    });
+    options.SwaggerDoc("v1", new OpenApiInfo { Title = "API Bancária", Version = "v1" });
 
     options.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
     {
-        Description = "Digite: Bearer {seu token}",
+        Description = "Insira apenas o token JWT (O prefixo 'Bearer ' será adicionado automaticamente)",
         Name = "Authorization",
         In = ParameterLocation.Header,
         Type = SecuritySchemeType.Http,
@@ -60,11 +59,7 @@ builder.Services.AddSwaggerGen(options =>
         {
             new OpenApiSecurityScheme
             {
-                Reference = new OpenApiReference
-                {
-                    Type = ReferenceType.SecurityScheme,
-                    Id = "Bearer"
-                }
+                Reference = new OpenApiReference { Type = ReferenceType.SecurityScheme, Id = "Bearer" }
             },
             Array.Empty<string>()
         }
@@ -72,17 +67,13 @@ builder.Services.AddSwaggerGen(options =>
 });
 
 // =====================
-// JWT (CORRIGIDO)
+// JWT (Suporte a Variáveis do Render/Linux)
 // =====================
-var jwtKey = builder.Configuration["Jwt:Key"];
-var jwtIssuer = builder.Configuration["Jwt:Issuer"];
-var jwtAudience = builder.Configuration["Jwt:Audience"];
+var jwtKey = builder.Configuration["Jwt:Key"] ?? builder.Configuration["Jwt__Key"];
+var jwtIssuer = builder.Configuration["Jwt:Issuer"] ?? builder.Configuration["Jwt__Issuer"];
+var jwtAudience = builder.Configuration["Jwt:Audience"] ?? builder.Configuration["Jwt__Audience"];
 
-if (string.IsNullOrWhiteSpace(jwtKey))
-{
-    Console.WriteLine("JWT KEY NÃO ENCONTRADA!");
-    throw new Exception("Jwt não configurado!");
-}
+if (string.IsNullOrEmpty(jwtKey)) throw new Exception("Erro: JWT Key não configurada nas variáveis de ambiente!");
 
 var key = Encoding.UTF8.GetBytes(jwtKey);
 
@@ -93,27 +84,22 @@ builder.Services.AddAuthentication(options =>
 })
 .AddJwtBearer(options =>
 {
-    options.RequireHttpsMetadata = false;
+    options.RequireHttpsMetadata = false; // Render faz o Offload do SSL
     options.SaveToken = true;
-
     options.TokenValidationParameters = new TokenValidationParameters
     {
         ValidateIssuer = true,
         ValidateAudience = true,
         ValidateLifetime = true,
         ValidateIssuerSigningKey = true,
-
         ValidIssuer = jwtIssuer,
         ValidAudience = jwtAudience,
-        IssuerSigningKey = new SymmetricSecurityKey(key),
-
-        NameClaimType = "name",
-        RoleClaimType = "role"
+        IssuerSigningKey = new SymmetricSecurityKey(key)
     };
 });
 
 // =====================
-// DEPENDENCY INJECTION
+// DB & DI
 // =====================
 builder.Services.AddScoped<IClienteRepository, ClienteRepository>();
 builder.Services.AddScoped<IClienteService, ClienteService>();
@@ -123,48 +109,36 @@ builder.Services.AddScoped<ITransacaoRepository, TransacaoRepository>();
 builder.Services.AddScoped<ITransacaoService, TransacaoService>();
 builder.Services.AddScoped<AuthService>();
 
-// =====================
-// DATABASE (PostgreSQL)
-// =====================
-var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
+var connectionString = builder.Configuration.GetConnectionString("DefaultConnection")
+                       ?? builder.Configuration["ConnectionStrings__DefaultConnection"];
 
-if (string.IsNullOrWhiteSpace(connectionString))
-{
-    Console.WriteLine("CONNECTION STRING NÃO ENCONTRADA!");
-    throw new Exception("Connection string não configurada!");
-}
+builder.Services.AddDbContext<AppDbContext>(options => options.UseNpgsql(connectionString));
 
-builder.Services.AddDbContext<AppDbContext>(options =>
-    options.UseNpgsql(connectionString));
-
-// =====================
-// APP
-// =====================
 var app = builder.Build();
 
 // =====================
-// MIDDLEWARES
+// MIDDLEWARES (A ordem importa!)
 // =====================
 
-// Swagger liberado em produção
-app.UseSwagger();
-app.UseSwaggerUI(c =>
+// 1. Headers de Proxy (Importante para o Render)
+app.UseForwardedHeaders(new ForwardedHeadersOptions
 {
+    ForwardedHeaders = ForwardedHeaders.XForwardedFor | ForwardedHeaders.XForwardedProto
+});
+
+app.UseSwagger();
+app.UseSwaggerUI(c => {
     c.SwaggerEndpoint("/swagger/v1/swagger.json", "API Bancária V1");
     c.RoutePrefix = string.Empty;
 });
 
-// CORS
-app.UseCors("AllowFrontend");
+// 2. CORS deve vir antes da Auth
+app.UseCors("AllowAny"); // Use a policy definida acima
 
-// Auth
 app.UseAuthentication();
 app.UseAuthorization();
 
-// Rota raiz
 app.MapGet("/", () => "API Bancária rodando 🚀");
-
-// Controllers
 app.MapControllers();
 
 using (var scope = app.Services.CreateScope())
