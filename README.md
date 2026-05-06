@@ -140,7 +140,7 @@ dotnet run
 Analista de Sistemas
 
 * GitHub: https://github.com/gabrielmessias-dev
-* LinkedIn: https://linkedin.com
+* LinkedIn: https://linkedin.com/in/gabrielmessias-dev
 
 ---
 
