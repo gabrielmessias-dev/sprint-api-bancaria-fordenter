@@ -15,48 +15,25 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 
-// CORS CONFIG
-builder.Services.AddCors(options =>
-{
-    options.AddPolicy("AllowFrontend",
-        policy =>
-        {
-            policy
-                .WithOrigins("http://localhost:5173")
-                .AllowAnyHeader()
-                .AllowAnyMethod();
-        });
-});
-
 // SWAGGER COM JWT
 builder.Services.AddSwaggerGen(options =>
 {
-    options.SwaggerDoc("v1", new OpenApiInfo
-    {
-        Title = "API Bancária",
-        Version = "v1"
-    });
-
+    options.SwaggerDoc("v1", new OpenApiInfo { Title = "API Bancária", Version = "v1" });
     options.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
     {
-        Description = "Digite: {seu token}",
+        Description = "Digite: {seu token} (Não é necessário o prefixo Bearer)",
         Name = "Authorization",
         In = ParameterLocation.Header,
         Type = SecuritySchemeType.Http,
         Scheme = "bearer",
         BearerFormat = "JWT"
     });
-
     options.AddSecurityRequirement(new OpenApiSecurityRequirement
     {
         {
             new OpenApiSecurityScheme
             {
-                Reference = new OpenApiReference
-                {
-                    Type = ReferenceType.SecurityScheme,
-                    Id = "Bearer"
-                }
+                Reference = new OpenApiReference { Type = ReferenceType.SecurityScheme, Id = "Bearer" }
             },
             Array.Empty<string>()
         }
@@ -65,7 +42,6 @@ builder.Services.AddSwaggerGen(options =>
 
 // JWT CONFIG
 var key = Encoding.UTF8.GetBytes(builder.Configuration["Jwt:Key"]);
-
 builder.Services.AddAuthentication(options =>
 {
     options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
@@ -75,17 +51,14 @@ builder.Services.AddAuthentication(options =>
 {
     options.RequireHttpsMetadata = false;
     options.SaveToken = true;
-
     options.TokenValidationParameters = new TokenValidationParameters
     {
         ValidateIssuer = true,
         ValidateAudience = true,
         ValidateLifetime = true,
         ValidateIssuerSigningKey = true,
-
         ValidIssuer = builder.Configuration["Jwt:Issuer"],
         ValidAudience = builder.Configuration["Jwt:Audience"],
-
         IssuerSigningKey = new SymmetricSecurityKey(key)
     };
 });
@@ -99,13 +72,16 @@ builder.Services.AddScoped<ITransacaoRepository, TransacaoRepository>();
 builder.Services.AddScoped<ITransacaoService, TransacaoService>();
 builder.Services.AddScoped<AuthService>();
 
-// MySQL
+// Banco de Dados
 var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
-
 builder.Services.AddDbContext<AppDbContext>(options =>
     options.UseMySql(connectionString, ServerVersion.AutoDetect(connectionString)));
 
 var app = builder.Build();
+
+// Configuração de arquivos estáticos (Front-end na wwwroot)
+app.UseDefaultFiles();
+app.UseStaticFiles();
 
 // Middleware
 if (app.Environment.IsDevelopment())
@@ -114,12 +90,12 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
-// CORS TEM QUE VIR ANTES DO AUTH
-app.UseCors("AllowFrontend");
-
 app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapControllers();
+
+// Faz com que rotas não encontradas caiam no Front-end (React)
+app.MapFallbackToFile("index.html");
 
 app.Run();
