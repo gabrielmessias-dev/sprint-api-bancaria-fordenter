@@ -58,7 +58,7 @@ Fluxo:
 
 Exemplo:
 
-Authorization: Bearer SEU_TOKEN
+Authorization: SEU_TOKEN (Não é necessário o prefixo "Bearer")
 
 ------------------------------------------------------------------------
 
