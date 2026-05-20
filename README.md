@@ -71,7 +71,7 @@ Este projeto utiliza **SPA Hosting (Single Page Application Hosting)** com ASP.N
 ## 🔐 Autenticação
 
 ```http
-Authorization: Bearer SEU_TOKEN
+Authorization: SEU_TOKEN
 ```
 
 ---
